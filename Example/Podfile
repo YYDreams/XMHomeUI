@@ -1,0 +1,6 @@
+use_frameworks!
+target 'XMHomeUI_Tests' do
+  pod 'XMHomeUI', :path => '../'
+  
+  
+end
