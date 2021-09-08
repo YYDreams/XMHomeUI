@@ -1,0 +1,22 @@
+{
+  "name": "XMHomeUI",
+  "version": "0.1.0",
+  "summary": "A short description of XMHomeUI.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/YYDreams/XMHomeUI",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "YYDreams": "799431668@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/YYDreams/XMHomeUI.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "XMHomeUI/Classes/**/*"
+}

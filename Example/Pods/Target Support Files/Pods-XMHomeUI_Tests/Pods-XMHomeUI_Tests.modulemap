@@ -1,0 +1,6 @@
+framework module Pods_XMHomeUI_Tests {
+  umbrella header "Pods-XMHomeUI_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,16 @@
+PODS:
+  - XMHomeUI (0.1.0)
+
+DEPENDENCIES:
+  - XMHomeUI (from `../`)
+
+EXTERNAL SOURCES:
+  XMHomeUI:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  XMHomeUI: be3aa4e556c6aea7962f8ad786bb228361ac788c
+
+PODFILE CHECKSUM: 1fcdeb5250a0d96ded2be13a723bd26f79ed8ba5
+
+COCOAPODS: 1.10.1
