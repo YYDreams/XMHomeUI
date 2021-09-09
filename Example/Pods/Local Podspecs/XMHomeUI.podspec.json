@@ -16,7 +16,24 @@
     "tag": "0.1.0"
   },
   "platforms": {
-    "ios": "9.0"
+    "ios": "10.0"
   },
-  "source_files": "XMHomeUI/Classes/**/*"
+  "source_files": "XMHomeUI/Classes/**/*",
+  "dependencies": {
+    "BaseUI": [
+
+    ],
+    "JXCategoryView": [
+
+    ],
+    "XMHomeUIExtension": [
+
+    ],
+    "SDCycleScrollView": [
+
+    ],
+    "NMNetwork": [
+
+    ]
+  }
 }

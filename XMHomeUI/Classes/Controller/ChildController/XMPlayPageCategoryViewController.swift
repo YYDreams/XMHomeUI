@@ -80,12 +80,13 @@ class XMPlayPageCategoryViewController: UIViewController {
     
     func setupNavView(){
         
+        self.view.backgroundColor = UIColor.white
         
         let listContainerView = JXCategoryListContainerView(type: .scrollView, delegate: self)
         self.categoryView.listContainer = listContainerView
         self.view.addSubview(listContainerView!)
         let topView = UIView()
-        topView.backgroundColor = UIColor.white
+        topView.backgroundColor = UIColor.green
         self.view.addSubview(topView)
         topView.addSubview(self.categoryView)
     
@@ -95,13 +96,15 @@ class XMPlayPageCategoryViewController: UIViewController {
             $0.top.equalTo(kStatusBarHeight)
             $0.height.equalTo(50)
         }
+        listContainerView?.backgroundColor = UIColor.orange
         listContainerView?.snp_makeConstraints{
             $0.top.equalTo(topView.snp_bottom)
             $0.left.right.bottom.equalToSuperview()
         }
         
         self.categoryView.snp_makeConstraints{
-            $0.left.right.equalToSuperview()
+            $0.width.equalTo(kScreenWidth - 100)
+            $0.centerX.equalToSuperview()
             $0.height.equalTo(35)
             $0.centerY.equalTo(topView)
         }
