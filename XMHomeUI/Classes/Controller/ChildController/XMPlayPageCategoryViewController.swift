@@ -1,8 +1,8 @@
 //
-//  XMHomeViewController.swift
+//  XMPlayPageCategoryViewController.swift
 //  XMHomeUI
 //
-//  Created by flowerflower on 2021/8/27.
+//  Created by flowerflower on 2021/9/9.
 //
 
 import Foundation
@@ -13,23 +13,22 @@ import XMUtil
 
 // MARK: ------------------------- Const/Enum/Struct
 
-extension XMHomeViewController {
+extension XMPlayPageCategoryViewController {
     
     /// 常量
     struct Const {}
     
     /// 内部属性
-    struct Propertys {
-        let titles = [String]()
-    }
+    struct Porpertys {}
     
     /// 外部参数
     struct Params {}
     
 }
 
-open class XMHomeViewController: BaseUIViewController {
+class XMPlayPageCategoryViewController: UIViewController {
     
+    // MARK: ------------------------- Propertys
     // MARK: ------------------------- Propertys
     
     lazy var categoryView: JXCategoryTitleView = {
@@ -45,7 +44,7 @@ open class XMHomeViewController: BaseUIViewController {
         view.isContentScrollViewClickTransitionAnimationEnabled = false
         view.titleLabelAnchorPointStyle = .bottom
         view.isAverageCellSpacingEnabled = false
-        view.titles = ["推荐","Vip","直播"]
+        view.titles = ["声音","AI文稿","评论"]
         let lineView = JXCategoryIndicatorLineView()
         lineView.indicatorColor = UIColor.red
         lineView.indicatorCornerRadius = 0
@@ -55,34 +54,33 @@ open class XMHomeViewController: BaseUIViewController {
         view.indicators = [lineView]
         return view
     }()
-    
     /// 内部属性
-    var propertys: Propertys = Propertys()
+    var propertys: Porpertys = Porpertys()
     /// 外部参数
     var params: Params = Params()
     
-    
     // MARK: ------------------------- CycLife
-
-    open override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
-    }
- 
-    open override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
-        }
-    
-    open override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         self.setupSubViews()
+        
     }
-     
-    // MARK: ------------------------- setupSubViews
-       
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
     func setupSubViews(){
-
+       setupNavView()
+        
+    }
+    
+    func setupNavView(){
+        
+        
         let listContainerView = JXCategoryListContainerView(type: .scrollView, delegate: self)
         self.categoryView.listContainer = listContainerView
         self.view.addSubview(listContainerView!)
@@ -107,13 +105,37 @@ open class XMHomeViewController: BaseUIViewController {
             $0.height.equalTo(35)
             $0.centerY.equalTo(topView)
         }
- 
+        
+        
     }
-
+    
     // MARK: ------------------------- Events
-
+    
+    // MARK: ------------------------- Methods
     
 }
 
 
 
+extension XMPlayPageCategoryViewController: JXCategoryViewDelegate,JXCategoryListContainerViewDelegate{
+    
+    public func number(ofListsInlistContainerView listContainerView: JXCategoryListContainerView!) -> Int {
+        return self.categoryView.titles.count;
+    }
+    
+    
+    public func listContainerView(_ listContainerView: JXCategoryListContainerView!, initListFor index: Int) -> JXCategoryListContentViewDelegate! {
+        if index == 0 {
+            let vc = XMSoundViewController()
+            return vc
+        }else{
+            let listVC = XMRecommandViewController()
+            return listVC
+        }
+    }
+    
+
+    
+    
+    
+}

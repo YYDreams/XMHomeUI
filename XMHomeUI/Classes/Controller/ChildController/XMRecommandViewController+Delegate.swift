@@ -80,7 +80,11 @@ extension XMRecommandViewController{
      func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return UIView()
     }
-    
+     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        self.navigationController?.pushViewController(XMPlayPageCategoryViewController(), animated: true)
+        
+    }
      func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0.01
     }

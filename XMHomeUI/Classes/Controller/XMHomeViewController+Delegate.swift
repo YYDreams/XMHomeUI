@@ -16,6 +16,10 @@ extension XMHomeViewController: JXCategoryViewDelegate,JXCategoryListContainerVi
     
     
     public func listContainerView(_ listContainerView: JXCategoryListContainerView!, initListFor index: Int) -> JXCategoryListContentViewDelegate! {
+        
+        let listVC = XMRecommandViewController()
+        return listVC
+        
         if index == 0 {
             let vc = XMHomeListViewController()
             return vc
