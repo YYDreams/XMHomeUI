@@ -7,6 +7,9 @@
 
 import Foundation
 import XMUtil
+import XMAudioUIExtension
+import XMMediator
+
 extension XMRecommandViewController{
     
      func numberOfSections(in tableView: UITableView) -> Int {
@@ -81,10 +84,13 @@ extension XMRecommandViewController{
         return UIView()
     }
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = XMPlayPageCategoryViewController()
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true, completion: nil)
-//        self.navigationController?.pushViewController(XMPlayPageCategoryViewController(), animated: true)
+        
+        guard let playDetailVc  =  XEMediator.shared()?.XMAudioUI_playPageCategoryViewController() else{
+            return
+        }
+        playDetailVc.modalPresentationStyle = .fullScreen
+        self.present(playDetailVc, animated: true, completion: nil)
+
         
     }
      func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {

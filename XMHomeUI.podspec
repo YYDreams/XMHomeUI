@@ -41,8 +41,9 @@ TODO: Add long description of the pod here.
   # s.dependency 'AFNetworking', '~> 2.3'
   s.dependency 'BaseUI'
   s.dependency 'JXCategoryView'
-  s.dependency 'XMHomeUIExtension'
   s.dependency 'SDCycleScrollView'
   s.dependency 'NMNetwork'
+  s.dependency 'XMAudioUIExtension'
+
   
 end
